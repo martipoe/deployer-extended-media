@@ -36,7 +36,7 @@ task('media:pull', function () {
     }
 
     $fileUtility = new FileUtility();
-    $src = $fileUtility->resolveHomeDirectory(get('deploy_path')) . '/' . (test('[ -L {{deploy_path}}/release ]') ? 'release' : 'current');
+    $src = $fileUtility->resolveHomeDirectory(get('deploy_path')) . '/' . 'shared';
     if (!trim($src)) {
         throw new GracefulShutdownException('You need to specify a source path.');
     }
