@@ -62,10 +62,8 @@ task('media:copy', function () {
     $sourceServer = Configuration::getHost($sourceName);
 
     $fileUtility = new FileUtility();
-    $targetDir = $fileUtility->resolveHomeDirectory($targetServer->get('deploy_path')) . '/' .
-        (test('[ -e ' . $targetServer->get('deploy_path') . '/release ]') ? 'release' : 'current');
-    $sourceDir = $fileUtility->resolveHomeDirectory($sourceServer->get('deploy_path')) . '/' .
-        (test('[ -e ' . $sourceServer->get('deploy_path') . '/release ]') ? 'release' : 'current');
+    $targetDir = $fileUtility->resolveHomeDirectory($targetServer->get('deploy_path')) . '/' . 'shared';
+    $sourceDir = $fileUtility->resolveHomeDirectory($sourceServer->get('deploy_path')) . '/' . 'shared';
 
     if ($targetServer->getHostname() === $sourceServer->getHostname()
         && $targetServer->getPort() === $sourceServer->getPort()) {
